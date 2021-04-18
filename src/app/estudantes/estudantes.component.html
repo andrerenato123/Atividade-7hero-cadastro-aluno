@@ -1,0 +1,21 @@
+<div class="alunos">
+    <h2>{{estudante.name | uppercase}} </h2>
+    <h2>{{estudante.instituicao | uppercase}} </h2>
+    <h2>{{estudante.curso | uppercase}} </h2>
+    <h2>{{estudante.telefone | uppercase}} </h2>
+</div>
+<div class="alunos">
+    <div><span>Codigo: </span>{{estudante.id}}</div><br>
+    <label for="name"> Nome: </label>
+    <input id="name" [(ngModel)]="estudante.name" placeholder="name"><br>
+    <label for="instituicao"> Instituição: </label>
+    <input id="instituicao" [(ngModel)]="estudante.instituicao" placeholder="instituicao"><br>
+    <label for="curso"> Curso: </label>
+    <input id="curso" [(ngModel)]="estudante.curso" placeholder="curso"><br>
+    <label for="telefone"> Telefone: </label>
+    <input id="telefone" [(ngModel)]="estudante.telefone" placeholder="telefone"><br>
+
+</div>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
