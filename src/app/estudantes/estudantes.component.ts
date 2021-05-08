@@ -1,30 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { Estudante } from '../estudante';
-import { ESTUDANTES } from '../mock-estudantes';
+import { EstudanteService } from '../estudante.service';
+import { MessageService } from '../message.service';
+
 @Component({
   selector: 'app-estudantes',
   templateUrl: './estudantes.component.html',
   styleUrls: ['./estudantes.component.css']
 })
 export class EstudantesComponent implements OnInit {
-  estudantes = ESTUDANTES
+
   selectedEstudante?: Estudante;
-  estudante: Estudante = {
 
+  estudantes: Estudante[] = [];
 
-    id: 1,
-    name: 'André Renato',
+  constructor(private estudanteService: EstudanteService, private messageService: MessageService) { }
 
-  };
-
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit() {
+    this.getEstudantes();
   }
-
 
   onSelect(estudante: Estudante): void {
     this.selectedEstudante = estudante;
+    this.messageService.add(`EstudantesComponent: Selected estudante id=${estudante.id}`);
   }
 
+  getEstudantes(): void {
+    this.estudanteService.getEstudantes()
+      .subscribe(estudantes => this.estudantes = estudantes);
+  }
 }
