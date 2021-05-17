@@ -5,9 +5,7 @@ import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root'})
 export class EstudanteService {
 
   constructor(private messageService: MessageService) { }
@@ -19,4 +17,14 @@ export class EstudanteService {
     this.messageService.add('EstudanteService: fetched estudantes');
     return estudantes;
   }
+
+  getEstudante(id: number): Observable<Estudante> {
+   
+    const estudante = ESTUDANTES.find(h => h.id === id) as Estudante;
+    this.messageService.add(`EstudanteService: fetched estudante id=${id}`);
+    return of(estudante);
+  }
 }
+
+
+

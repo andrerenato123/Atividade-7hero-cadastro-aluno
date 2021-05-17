@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Estudante } from '../estudante';
 import { EstudanteService } from '../estudante.service';
-import { MessageService } from '../message.service';
 
 @Component({
-  selector: 'app-estudantes',
-  templateUrl: './estudantes.component.html',
-  styleUrls: ['./estudantes.component.css']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
-export class EstudantesComponent implements OnInit {
-  estudantes: Estudante[];
+export class DashboardComponent implements OnInit {
+  estudantes: Estudante[] = [];
 
   constructor(private estudanteService: EstudanteService) { }
 
@@ -19,6 +18,7 @@ export class EstudantesComponent implements OnInit {
 
   getEstudantes(): void {
     this.estudanteService.getEstudantes()
-    .subscribe(estudantes => this.estudantes = estudantes);
+      .subscribe(estudantes => this.estudantes = estudantes.slice(1, 5));
   }
 }
+
