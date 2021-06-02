@@ -6,10 +6,9 @@ import { EstudanteDetailComponent } from './estudante-detail/estudante-detail.co
 
 
 const routes: Routes = [
-  { path: 'estudantes', component: EstudantesComponent },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'estudantes', component: EstudantesComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'detail/:id', component: EstudanteDetailComponent },
 ];
 
